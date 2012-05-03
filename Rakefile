@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "generator"
   gem.homepage = "http://github.com/maxkazar/generator"
   gem.license = "MIT"
-  gem.summary = %Q{Generator}
-  gem.description = %Q{Generator}
+  gem.summary = %Q{Generator gem help to create and use generators like rails 3}
+  gem.description = %Q{Generator gem is designed for use in ruby projects and provides templates generators like rails 3}
   gem.email = "maxkazargm@gmail.com"
   gem.authors = ["Max Kazarin"]
   # dependencies defined in Gemfile
