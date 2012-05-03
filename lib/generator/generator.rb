@@ -13,7 +13,7 @@ class Generator
   end
 
   def initialize(options = {})
-    @templates_path = options[:template_path] || File.join(Dir.pwd, 'lib/generators/templates')
+    @templates_path = options[:templates_path] || Generator.templates_path
     @options = options
   end
 
@@ -23,6 +23,14 @@ class Generator
 
   def self.remove(group, options = {})
     self.generator.each { |generator| generator.new(options).remove if generator.group == group }
+  end
+
+  def self.templates_path
+    @templates_path
+  end
+
+  def self.templates_path= path
+    @templates_path = path || File.join(Dir.pwd, 'lib/generators/templates')
   end
 
   # Create new folder
