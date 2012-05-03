@@ -1,19 +1,121 @@
 = generator
 
-Description goes here.
+Generator gem is designed for use in ruby projects and provides templates generators like rails 3.
 
-== Contributing to generator
+== Installation
+
+For installation with bundler, add to project <tt>Gemfile</tt>:
+  
+  gem 'generator'
+
+Run <tt>bundle install</tt>
+
+In other case:
+
+  gem install 'generator'
+
+== Usage
+
+Using generator is simple:
+
+  require 'generator'
+
+By default templates folder path is ./lib/generators/templates. To change templates folder path:
+
+  Generator.templates_path = File.expand_path('../generators/templates', __FILE__)
+
+Create new generator class and inherited from Generator class
+
+  def ConfigGenrator < Generator
+
+    # define generator group
+    def self.group
+      :config
+    end
+
+  end
+
+Define two methods <tt>run</tt> and <tt>remove</tt>
+
+   # generate
+   def run
+     create_folder @path, @options[:force]
+     create_file @path, 'config.yml.erb'
+   end
+
+   # remove (clean) generators result 
+   def remove
+     remove_folder @path
+   end
+
+to generate run 
+  
+  Generator.run :config
+
+to remove run 
+
+  Generator.remove :config
+
+=== Usage with rake
+
+Create two rake task
+
+ namespace :config do
+   desc 'Generate new area'
+   task :create
+     Generator.run :config
+   end
  
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+   desc 'Remove area from project'
+   task :remove
+     Generator.remove :config
+   end
+ end
+
+Now to generate config file use
+
+  rake config:create
+
+And to remove
+
+  rake config:remove
+
+== Example
+
+file ./lib/gemerators/config.rb 
+
+  def ConfigGenrator < Generator
+
+    # define generator group
+    def self.group
+      :config
+    end
+
+    # override initialize method to set configuration folder path
+    def initialize options=nil
+      super
+      @path = "./config"
+    end
+
+    # generate
+    def run
+      create_folder @path, @options[:force]
+      create_file @path, 'config.yml.erb'
+    end
+
+    # remove (clean) generators result 
+    def remove
+      remove_folder @path
+    end
+
+  end
+
+file ./lib/gemerators/templates/config.yml.erb
+
+  host: localhost
+  port: 6379
 
 == Copyright
 
 Copyright (c) 2012 Max Kazarin. See LICENSE.txt for
 further details.
-
