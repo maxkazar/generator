@@ -13,7 +13,7 @@ class Generator
   end
 
   def initialize(options = {})
-    @templates_path = options[:template_path] || File.join(Dir.pwd, 'generators/templates')
+    @templates_path = options[:template_path] || File.join(Dir.pwd, 'lib/generators/templates')
     @options = options
   end
 
