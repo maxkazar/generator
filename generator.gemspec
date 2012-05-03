@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Max Kazarin"]
   s.date = "2012-05-03"
-  s.description = "Generator"
+  s.description = "Generator gem is designed for use in ruby projects and provides templates generators like rails 3"
   s.email = "maxkazargm@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.22"
-  s.summary = "Generator"
+  s.summary = "Generator gem help to create and use generators like rails 3"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
