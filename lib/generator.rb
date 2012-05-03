@@ -1,0 +1,1 @@
+require File.expand_path('../generator/generator', __FILE__)
