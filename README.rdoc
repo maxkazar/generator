@@ -26,7 +26,7 @@ By default templates folder path is ./lib/generators/templates. To change templa
 
 Create new generator class and inherited from Generator class
 
-  class ConfigGenrator < Generator
+  class ConfigGenerator < Generator
 
     # define generator group
     def self.group
@@ -84,7 +84,7 @@ And to remove
 
 file ./lib/gemerators/config.rb 
 
-  class ConfigGenrator < Generator
+  class ConfigGenerator < Generator
 
     # define generator group
     def self.group
