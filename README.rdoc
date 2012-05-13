@@ -26,7 +26,7 @@ By default templates folder path is ./lib/generators/templates. To change templa
 
 Create new generator class and inherited from Generator class
 
-  def ConfigGenrator < Generator
+  class ConfigGenrator < Generator
 
     # define generator group
     def self.group
