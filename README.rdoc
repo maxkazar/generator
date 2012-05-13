@@ -84,7 +84,7 @@ And to remove
 
 file ./lib/gemerators/config.rb 
 
-  def ConfigGenrator < Generator
+  class ConfigGenrator < Generator
 
     # define generator group
     def self.group
